@@ -3,34 +3,84 @@
 <head>
     <title>UNIFY-IT</title>
     <meta charset="UTF-8">
+    <!-- 添加視口設置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
+            background: black; /* 添加黑色背景 */
         }
+        
         .fullscreen-img {
             width: 100%;
             height: 100vh;
-            object-fit: cover;
+            object-fit: contain; /* 改為 contain 以確保圖片完整顯示 */
         }
+        
         .nav {
             position: fixed;
             bottom: 20px;
-            right: 20px;
-            background: rgba(0,0,0,0.5);
-            padding: 10px;
-            border-radius: 5px;
+            left: 50%; /* 改為左側50% */
+            transform: translateX(-50%); /* 水平置中 */
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            border-radius: 25px;
+            text-align: center;
+            width: 80%;
+            max-width: 300px;
         }
+        
         .nav a {
             color: white;
             text-decoration: none;
-            margin: 0 5px;
+            margin: 0 8px;
+            padding: 8px 15px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            display: inline-block;
+            min-width: 15px;
+            transition: background 0.3s;
+        }
+        
+        .nav a:active,
+        .nav a:hover {
+            background: rgba(255,255,255,0.4);
+        }
+
+        /* 手機版面優化 */
+        @media (max-width: 768px) {
+            .nav {
+                padding: 15px 10px;
+                bottom: 30px;
+            }
+
+            .nav a {
+                margin: 5px;
+                padding: 10px 15px;
+                font-size: 16px;
+            }
+        }
+
+        /* 橫屏模式優化 */
+        @media (orientation: landscape) and (max-height: 500px) {
+            .nav {
+                bottom: 10px;
+                padding: 8px;
+            }
+
+            .nav a {
+                padding: 5px 10px;
+                margin: 3px;
+            }
         }
     </style>
 </head>
 <body>
-    <img src="https://raw.githubusercontent.com/tat454/tat454.github.io/refs/heads/main/images/1.JPG" alt="圖片1" class="fullscreen-img">
+    <img src="https://raw.githubusercontent.com/tat454/tat454.github.io/refs/heads/main/images/1.JPG" 
+         alt="圖片1" 
+         class="fullscreen-img">
     <div class="nav">
         <a href="index.html">1</a>
         <a href="page2.html">2</a>
@@ -40,4 +90,4 @@
         <a href="page6.html">6</a>
     </div>
 </body>
-</html> 
+</html>
